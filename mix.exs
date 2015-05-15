@@ -34,6 +34,8 @@ defmodule Rikku.Mixfile do
      {:postgrex, ">= 0.0.0"},
      {:phoenix_html, "~> 1.0"},
      {:phoenix_live_reload, "~> 0.4", only: :dev},
+     {:timex, "~> 0.13.4"},
+     {:ex_spec, "~> 0.3.0", only: :test},
      {:cowboy, "~> 1.0"}]
   end
 end
