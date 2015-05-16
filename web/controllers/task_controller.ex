@@ -1,14 +1,19 @@
 defmodule Rikku.TaskController do
   use Rikku.Web, :controller
 
+  import Ecto.Query
   alias Rikku.Task
 
   plug :scrub_params, "task" when action in [:create, :update]
   plug :action
 
   def index(conn, _params) do
-    tasks = Repo.all(Task)
-    render(conn, "index.html", tasks: tasks)
+    changeset = Task.changeset(%Task{})
+    query = from t in Task,
+          order_by: [desc: t.inserted_at],
+          select: t
+    tasks = Repo.all(query)
+    render(conn, "index.html", tasks: tasks, changeset: changeset)
   end
 
   def new(conn, _params) do

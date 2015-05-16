@@ -2,14 +2,13 @@ defmodule Rikku.TaskControllerTest do
   use Rikku.ControllerTestCase
 
   alias Rikku.Task
-  @valid_params task: %{end_time: %{day: 17, hour: 14, min: 0, month: 4, year: 2010}, info: "some info", start_time: %{day: 17, hour: 14, min: 0, month: 4, year: 2010}, title: "some content"}
+  @valid_params task: %{length: "1", info: "some info", title: "some content"}
   @invalid_params task: %{}
 
   describe "index" do
     it "renders tasks" do
       conn = conn(:get, "/tasks") |> send_request
       assert conn.status == 200
-      assert conn.resp_body =~ "Listing tasks"
     end
   end
 
@@ -33,8 +32,7 @@ defmodule Rikku.TaskControllerTest do
 
       assert task.title == "some content"
       assert task.info == "some info"
-      assert task.end_time == %Ecto.DateTime{day: 17, hour: 14, min: 0, month: 4, sec: 0, usec: 0, year: 2010}
-      assert task.start_time == %Ecto.DateTime{day: 17, hour: 14, min: 0, month: 4, sec: 0, usec: 0, year: 2010}
+      assert task.length == 1
     end
 
     it "shows the new page with invalid data" do
@@ -81,8 +79,7 @@ defmodule Rikku.TaskControllerTest do
 
       assert task.title == "some content"
       assert task.info == "some info"
-      assert task.end_time == %Ecto.DateTime{day: 17, hour: 14, min: 0, month: 4, sec: 0, usec: 0, year: 2010}
-      assert task.start_time == %Ecto.DateTime{day: 17, hour: 14, min: 0, month: 4, sec: 0, usec: 0, year: 2010}
+      assert task.length == 1
     end
 
     it "renders the edit page with invalid data" do

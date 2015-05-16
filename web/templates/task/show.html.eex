@@ -3,6 +3,11 @@
 <ul>
 
   <li>
+    <strong>Length:</strong>
+    <%= @task.length %>
+  </li>
+
+  <li>
     <strong>Title:</strong>
     <%= @task.title %>
   </li>
@@ -10,16 +15,6 @@
   <li>
     <strong>Info:</strong>
     <%= @task.info %>
-  </li>
-
-  <li>
-    <strong>StartTime:</strong>
-    <%= @task.start_time %>
-  </li>
-
-  <li>
-    <strong>EndTime:</strong>
-    <%= @task.end_time %>
   </li>
 
 </ul>

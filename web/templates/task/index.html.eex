@@ -1,12 +1,12 @@
-<h2>Listing tasks</h2>
+<%= render "form.html", changeset: @changeset,
+                        action: task_path(@conn, :create) %>
 
 <table class="table">
   <thead>
     <tr>
+      <th>Minutes</th>
       <th>Title</th>
       <th>Info</th>
-      <th>StartTime</th>
-      <th>EndTime</th>
 
       <th></th>
     </tr>
@@ -14,10 +14,9 @@
   <tbody>
 <%= for task <- @tasks do %>
     <tr>
+      <td><%= task.length %></td>
       <td><%= task.title %></td>
       <td><%= task.info %></td>
-      <td><%= task.start_time %></td>
-      <td><%= task.end_time %></td>
 
       <td class="text-right">
         <%= link "Show", to: task_path(@conn, :show, task), class: "btn btn-default btn-xs" %>

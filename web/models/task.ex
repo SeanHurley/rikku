@@ -4,13 +4,12 @@ defmodule Rikku.Task do
   schema "tasks" do
     field :title, :string
     field :info, :string
-    field :start_time, Ecto.DateTime
-    field :end_time, Ecto.DateTime
+    field :length, :integer
 
     timestamps
   end
 
-  @required_fields ~w(title start_time end_time)
+  @required_fields ~w(title length)
   @optional_fields ~w(info)
 
   @doc """
