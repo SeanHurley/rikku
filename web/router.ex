@@ -14,8 +14,7 @@ defmodule Rikku.Router do
 
   scope "/", Rikku do
     pipe_through :browser # Use the default browser stack
-
-    get "/", PageController, :index
+    get "/", TaskController, :index
 
     resources "/tasks", TaskController
   end
