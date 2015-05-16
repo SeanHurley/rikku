@@ -43,5 +43,13 @@ defmodule Rikku.TaskTest do
 
       assert changeset.errors[:title] == "can't be blank"
     end
+
+    it "doesn't require info" do
+      changeset = Task.changeset(%Task{}, %{
+        info: nil,
+      })
+
+      assert changeset.errors[:info] == nil
+    end
   end
 end

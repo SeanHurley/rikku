@@ -10,8 +10,8 @@ defmodule Rikku.Task do
     timestamps
   end
 
-  @required_fields ~w(title info start_time end_time)
-  @optional_fields ~w()
+  @required_fields ~w(title start_time end_time)
+  @optional_fields ~w(info)
 
   @doc """
   Creates a changeset based on the `model` and `params`.
