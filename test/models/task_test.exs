@@ -20,6 +20,14 @@ defmodule Rikku.TaskTest do
       assert changeset.errors[:length] == "is invalid"
     end
 
+    it "requires a date" do
+      changeset = Task.changeset(%Task{}, %{
+        date: nil,
+      })
+
+      assert changeset.errors[:date] == "can't be blank"
+    end
+
     it "requires a title" do
       changeset = Task.changeset(%Task{}, %{
         title: nil,

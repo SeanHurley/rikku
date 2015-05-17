@@ -26,6 +26,11 @@
   </div>
 
   <div class="form-group">
+    <label>Date</label>
+    <%= date_select f, :date, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
     <%= submit "Submit", class: "btn btn-primary" %>
   </div>
 <% end %>

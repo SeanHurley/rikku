@@ -5,11 +5,12 @@ defmodule Rikku.Task do
     field :title, :string
     field :info, :string
     field :length, :integer
+    field :date, Ecto.DateTime
 
     timestamps
   end
 
-  @required_fields ~w(title length)
+  @required_fields ~w(date title length)
   @optional_fields ~w(info)
 
   @doc """

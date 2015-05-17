@@ -8,7 +8,7 @@ defmodule Rikku.TaskController do
   plug :action
 
   def index(conn, _params) do
-    changeset = Task.changeset(%Task{})
+    changeset = Task.changeset(%Task{date: Ecto.DateTime.local})
     query = from t in Task,
           order_by: [desc: t.inserted_at],
           select: t
@@ -17,7 +17,7 @@ defmodule Rikku.TaskController do
   end
 
   def new(conn, _params) do
-    changeset = Task.changeset(%Task{})
+    changeset = Task.changeset(%Task{date: Ecto.DateTime.local})
     render(conn, "new.html", changeset: changeset)
   end
 

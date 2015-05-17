@@ -2,7 +2,7 @@ defmodule Rikku.TaskControllerTest do
   use Rikku.ControllerTestCase
 
   alias Rikku.Task
-  @valid_params task: %{length: "1", info: "some info", title: "some content"}
+  @valid_params task: %{date: %{day: 17, hour: 16, min: 3, month: 5, sec: 35, usec: 0, year: 2015}, length: "1", info: "some info", title: "some content"}
   @invalid_params task: %{}
 
   describe "index" do
@@ -24,7 +24,7 @@ defmodule Rikku.TaskControllerTest do
     it "creates tasks with valid data" do
       conn = conn(:post, "/tasks", @valid_params) |> send_request
       assert conn.status == 302
-      assert get_resp_header(conn, "location") == ["/tasks"]
+      assert get_resp_header(conn, "location") == ["/"]
 
       [task] = Rikku.Task
       |> where([t], t.title == "some content")
@@ -71,7 +71,7 @@ defmodule Rikku.TaskControllerTest do
       task = Rikku.Repo.insert %Task{}
       conn = conn(:put, "/tasks/#{task.id}", @valid_params) |> send_request
       assert conn.status == 302
-      assert get_resp_header(conn, "location") == ["/tasks"]
+      assert get_resp_header(conn, "location") == ["/"]
 
       [task] = Rikku.Task
       |> where([t], t.title == "some content")
@@ -95,7 +95,7 @@ defmodule Rikku.TaskControllerTest do
       task = Rikku.Repo.insert %Task{}
       conn = conn(:delete, "/tasks/#{task.id}") |> send_request
       assert conn.status == 302
-      assert get_resp_header(conn, "location") == ["/tasks"]
+      assert get_resp_header(conn, "location") == ["/"]
       refute Rikku.Repo.get(Task, task.id)
     end
   end
