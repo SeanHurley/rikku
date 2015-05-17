@@ -17,6 +17,11 @@
     <%= @task.info %>
   </li>
 
+  <li>
+    <strong>Date:</strong>
+    <%= @task.date %>
+  </li>
+
 </ul>
 
 <%= link "Back", to: task_path(@conn, :index) %>
