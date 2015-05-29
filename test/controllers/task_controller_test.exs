@@ -10,6 +10,16 @@ defmodule Rikku.TaskControllerTest do
       conn = conn(:get, "/tasks") |> send_request
       assert conn.status == 200
     end
+
+    it "paginates" do
+      Rikku.Repo.insert %Task{length: 10, title: "apples"}
+      Rikku.Repo.insert %Task{length: 20, title: "bananas"}
+
+      conn = conn(:get, "/tasks?page_size=1") |> send_request
+      assert conn.status == 200
+      assert conn.resp_body =~ "apples"
+      refute conn.resp_body =~ "bananas"
+    end
   end
 
   describe "new" do

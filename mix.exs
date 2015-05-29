@@ -30,12 +30,13 @@ defmodule Rikku.Mixfile do
   # Type `mix help deps` for examples and options
   defp deps do
     [{:phoenix, "~> 0.13"},
+     {:ex_spec, "~> 0.3.0", only: :test},
      {:phoenix_ecto, "~> 0.4"},
-     {:postgrex, ">= 0.0.0"},
      {:phoenix_html, "~> 1.0"},
      {:phoenix_live_reload, "~> 0.4", only: :dev},
+     {:postgrex, ">= 0.0.0"},
+     {:scrivener, "~> 0.6.0"},
      {:timex, "~> 0.13.4"},
-     {:ex_spec, "~> 0.3.0", only: :test},
      {:cowboy, "~> 1.0"}]
   end
 end

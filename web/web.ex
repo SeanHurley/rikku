@@ -46,6 +46,8 @@ defmodule Rikku.Web do
       # Import URL helpers from the router
       import Rikku.Router.Helpers
 
+      import Rikku.Helper.Pagination
+
       # Use all HTML functionality (forms, tags, etc)
       use Phoenix.HTML
     end

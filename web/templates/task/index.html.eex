@@ -13,7 +13,7 @@
     </tr>
   </thead>
   <tbody>
-<%= for task <- @tasks do %>
+<%= for task <- @tasks.entries do %>
     <tr>
       <td><%= task.length %></td>
       <td><%= task.title %></td>
@@ -30,4 +30,4 @@
   </tbody>
 </table>
 
-<%= link "New task", to: task_path(@conn, :new) %>
+<%= render Rikku.SharedView, "_pagination.html", page: @tasks, path: {:task_path, [@conn, :index]} %>

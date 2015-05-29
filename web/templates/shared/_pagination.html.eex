@@ -1,0 +1,10 @@
+<div>
+  <%= unless @page.page_number == 1 do %>
+    <%= link "Previous Page", to: pagination_path(@path, page_size: @page.page_size, page: @page.page_number - 1), class: "btn" %>
+  <% end %>
+
+  <%= unless @page.page_number == @page.total_pages do %>
+    <%= link "Next Page", to: pagination_path(@path, page_size: @page.page_size, page: @page.page_number + 1), class: "btn" %>
+  <% end %>
+</div>
+

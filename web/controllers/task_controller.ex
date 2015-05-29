@@ -12,7 +12,7 @@ defmodule Rikku.TaskController do
     query = from t in Task,
           order_by: [desc: t.inserted_at],
           select: t
-    tasks = Repo.all(query)
+    tasks = Rikku.Repo.paginate(query, _params)
     render(conn, "index.html", tasks: tasks, changeset: changeset)
   end
 
