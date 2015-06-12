@@ -27,7 +27,7 @@
 
   <div class="form-group">
     <label>Date</label>
-    <%= datetime_select f, :date, class: "form-control" %>
+    <%= date_select f, :date, class: "form-control" %>
   </div>
 
   <div class="form-group">

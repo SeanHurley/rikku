@@ -2,7 +2,7 @@ defmodule Rikku.TaskControllerTest do
   use Rikku.ControllerTestCase
 
   alias Rikku.Task
-  @valid_params task: %{date: %{day: 17, hour: 16, min: 3, month: 5, sec: 35, usec: 0, year: 2015}, length: "1", info: "some info", title: "some content"}
+  @valid_params task: %{date: %{day: 17, month: 5, sec: 35, usec: 0, year: 2015}, length: "1", info: "some info", title: "some content"}
   @invalid_params task: %{}
 
   describe "index" do

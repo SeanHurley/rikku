@@ -5,7 +5,7 @@ defmodule Rikku.Task do
     field :title, :string
     field :info, :string
     field :length, :integer
-    field :date, Ecto.DateTime
+    field :date, Ecto.Date
 
     timestamps
   end
