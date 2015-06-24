@@ -1,0 +1,10 @@
+<li data-id='<%= @task.id %>'>
+  <span class='task-length'><%= @task.length %> - </span>
+  <span class='edit-task-length hidden'><input type='number' /></span>
+  <span class='task-title'><%= @task.title %></span>
+  <span class='edit-task-title hidden'><input type='text' /></span>
+  <span class='task-info'><%= @task.info %> - </span>
+  <span class='edit-task-info hidden'><input type='text' /></span>
+  <span class='edit-task'>edit</span>
+  <span class='delete-task'>remove</span>
+</li>

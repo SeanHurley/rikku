@@ -8,19 +8,16 @@ defmodule Rikku.Router do
     plug :protect_from_forgery
   end
 
-  pipeline :api do
-    plug :accepts, ["json"]
-  end
-
-  scope "/", Rikku do
+  scope "/" do
     pipe_through :browser # Use the default browser stack
-    get "/", TaskController, :index
 
-    resources "/tasks", TaskController
+    # get "/", TaskController, :index
+    resources "/tasks", Rikku.TaskController
+
+    get "/", Rikku.RTasksController, :index, as: :root
   end
 
-  # Other scopes may use custom stacks.
-  # scope "/api", Rikku do
-  #   pipe_through :api
-  # end
+  socket "/ws" do
+    channel "tasks:*", Rikku.RTaskChannel
+  end
 end
