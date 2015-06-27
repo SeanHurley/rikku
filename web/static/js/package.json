@@ -1,0 +1,20 @@
+{
+  "repository": {},
+  "dependencies": {
+    "flux": "^2.0.3",
+    "immutable": "^3.7.4",
+    "react": "^0.13.3",
+    "react-immutable-render-mixin": "^0.8.1"
+  },
+  "devDependencies": {
+    "babelify": "^6.1.2",
+    "browserify": "^10.2.4",
+    "gulp": "^3.9.0",
+    "gulp-watch": "^4.2.0",
+    "vinyl-source-stream": "^1.1.0"
+  },
+  "scripts": {
+    "build": "./node_modules/.bin/gulp build",
+    "watch": "./node_modules/.bin/gulp watch"
+  }
+}

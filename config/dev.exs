@@ -10,8 +10,8 @@ config :rikku, Rikku.Endpoint,
   http: [port: 4000],
   debug_errors: true,
   code_reloader: true,
-  cache_static_lookup: false,
-  watchers: [node: ["node_modules/brunch/bin/brunch", "watch"]]
+  cache_static_lookup: false
+  # watchers: [node: ["web/static/js/node_modules/.bin/gulp", "--cwd web/static/js", "watch"]]
 
 # Watch static and templates for browser reloading.
 config :rikku, Rikku.Endpoint,

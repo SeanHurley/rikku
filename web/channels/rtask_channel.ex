@@ -5,9 +5,16 @@ defmodule Rikku.RTaskChannel do
   alias Rikku.Repo
   alias Rikku.Task
 
+  import Ecto.Query
+
   def join("tasks:list", _message, socket) do
     Logger.debug "> join #{socket.topic}"
-    {:ok, socket}
+    query = from t in Task,
+          where: t.date == ^Ecto.DateTime.local,
+          order_by: [desc: t.inserted_at],
+          select: t
+    tasks = Repo.all(query)
+    {:ok, %{tasks: tasks}, socket}
   end
 
   def handle_in("create:task", %{"task" => params}, socket) do

@@ -1,12 +1,2 @@
-<input type="text" name="description" id="new_task" placeholder="New task" />
-<div id='to_do_list_container'>
-  <h3>
-    To Do List
-    <span class='arrange-tasks' for="#to_do_list">Arrange tasks<span>
-  </h3>
-  <ul id='to_do_list'>
-    <%= for task <- @tasks.entries do %>
-      <%= render "task.html", task: task %>
-    <% end %>
-  </ul>
+<div id="app-container" class="jumbotron">
 </div>
