@@ -6,6 +6,6 @@ defmodule Rikku.RTasksController do
   plug :action
 
   def index(conn, _params) do
-    render(conn, "index.html", tasks: tasks)
+    render(conn, "index.html")
   end
 end
