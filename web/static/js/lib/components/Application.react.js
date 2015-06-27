@@ -25,8 +25,7 @@ export default class Application extends React.Component {
   }
 
   render() {
-    var today = new Date()
-    var date = this.getDate()
+    var date = this.getToday()
     var key = date.year + "-" + date.month + "-" + date.day
     var data = this.state.tasks.get(key)
     if (data === undefined) {
@@ -35,12 +34,14 @@ export default class Application extends React.Component {
 
     return (
       <div>
-        <TaskColumn data={data} date={date}/>
+        <div style={{display: "inline-block"}}>
+          <TaskColumn data={data} date={date}/>
+        </div>
       </div>
     )
   }
 
-  getDate() {
+  getToday() {
     var today = new Date();
     var day = today.getDate();
     var month = today.getMonth() + 1;

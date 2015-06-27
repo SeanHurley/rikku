@@ -4,10 +4,29 @@ import TaskViewActions from '../actions/TaskViewActions'
 export default class TaskForm extends React.Component {
   onAddClick(e) {
     e.preventDefault();
-    var length = React.findDOMNode(this.refs.length).value.trim();
-    var title = React.findDOMNode(this.refs.title).value.trim();
-    var info = React.findDOMNode(this.refs.info).value.trim();
+    var length = this.getValue(this.refs.length);
+    var title = this.getValue(this.refs.title);
+    var info = this.getValue(this.refs.info);
     TaskViewActions.addTask(length, title, info, this.props.date);
+    this.focusInput()
+  }
+
+  getValue(key) {
+    var node = React.findDOMNode(key);
+    var value= node.value.trim();
+    node.value = ""
+
+    return value
+  }
+
+
+  componentDidMount() {
+    this.focusInput()
+  }
+
+  focusInput() {
+    var node = React.findDOMNode(this.refs.length)
+    node.focus()
   }
 
   render() {

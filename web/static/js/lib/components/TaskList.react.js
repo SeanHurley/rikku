@@ -7,7 +7,8 @@
      return (
        <ul style={{textAlign: 'left'}}>{
          this.props.data
-           .sortBy(t => t.date)
+           .sortBy(t => t.inserted_at)
+           .reverse()
            .map(t =>
              <Task key={t.id}
                     title={t.title}
