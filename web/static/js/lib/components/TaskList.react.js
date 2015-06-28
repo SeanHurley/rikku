@@ -6,7 +6,6 @@
    render() {
      return (
        <div>
-        <h3>{this.props.date.year + "-" + this.props.date.month + "-" + this.props.date.day}</h3>
          <ul style={{textAlign: 'left'}}>{
            this.props.data
              .sortBy(t => t.inserted_at)

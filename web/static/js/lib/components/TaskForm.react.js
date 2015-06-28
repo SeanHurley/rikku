@@ -30,27 +30,29 @@ export default class TaskForm extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.onAddClick.bind(this)}>
-        <div className="form-group col-md-4">
-          <label>Length</label>
-          <input autofocus="autofocus" ref="length" className="form-control" type="number"/>
-        </div>
+      <div>
+        <h3>{this.props.date.year + "-" + this.props.date.month + "-" + this.props.date.day}</h3>
+        <form onSubmit={this.onAddClick.bind(this)}>
+          <div className="form-group col-md-4">
+            <label>Length</label>
+            <input autofocus="autofocus" ref="length" className="form-control" type="number"/>
+          </div>
 
-        <div className="form-group col-md-4">
-          <label>Title</label>
-          <input className="form-control" ref="title" type="text"/>
-        </div>
+          <div className="form-group col-md-4">
+            <label>Title</label>
+            <input className="form-control" ref="title" type="text"/>
+          </div>
 
-        <div className="form-group col-md-4">
-          <label>Info</label>
-          <input className="form-control" ref="info" type="text"/>
-        </div>
+          <div className="form-group col-md-4">
+            <label>Info</label>
+            <input className="form-control" ref="info" type="text"/>
+          </div>
 
-        <div className="form-group">
-          <input className="btn btn-primary" type="submit" value="Submit"/>
-        </div>
-
-      </form>
+          <div className="form-group">
+            <input className="btn btn-primary" type="submit" value="Submit"/>
+          </div>
+        </form>
+      </div>
     )
   }
 }
