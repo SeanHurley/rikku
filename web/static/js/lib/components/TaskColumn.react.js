@@ -9,9 +9,9 @@ export default class TaskColumn extends React.Component {
   render() {
     return (
       <div>
+        <DateChange/>
         <TaskForm data={this.props.data} date={this.props.date}/>
         <TaskList data={this.props.data} date={this.props.date}/>
-        <DateChange/>
       </div>
     )
   }

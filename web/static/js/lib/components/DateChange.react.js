@@ -12,13 +12,9 @@ export default class DateChange extends React.Component {
 
   render() {
     return (
-      <div>
-        <div onClick={this.onClickBack.bind(this)}>
-          Back
-        </div>
-        <div onClick={this.onClickForward.bind(this)}>
-          Forward
-        </div>
+      <div style={{display: "inline-block"}}>
+        <input style={{float: "left", width: "100px", height: "40px", fontSize: "24px"}} type="button" value="&larr;" onClick={this.onClickBack.bind(this)} />
+        <input style={{float: "right", width: "100px", height: "40px", fontSize: "24px"}} type="button" value="&rarr;" onClick={this.onClickForward.bind(this)} />
       </div>
     )
   }
