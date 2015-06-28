@@ -29,7 +29,7 @@ export default class Application extends React.Component {
   }
 
   onChangeDate() {
-    this.setState({ tasks: this.state.tasks, date: this.state.date })
+    this.setState({ tasks: this.state.tasks, date: DateStore.get() })
   }
 
   render() {

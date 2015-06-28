@@ -16,11 +16,11 @@ class DateStore extends EventEmitter {
     AppDispatcher.register( action => {
       switch(action.actionType) {
       case "back_date":
-        this.date.day = this.date.day - 1;
+        this.updateDate(-1)
         this.emitChange()
         break
       case "forward_date":
-        this.date.day = this.date.day + 1;
+        this.updateDate(1)
         this.emitChange()
         break
       default:
@@ -30,7 +30,7 @@ class DateStore extends EventEmitter {
   }
 
   get() {
-    return this.date
+    return this.getHash()
   }
 
   emitChange() {
@@ -45,11 +45,19 @@ class DateStore extends EventEmitter {
     this.removeListener(CHANGE_EVENT, callback)
   }
 
+  updateDate(diff) {
+    this.date.setDate(this.date.getDate() + diff)
+  }
+
   getToday() {
     var today = new Date();
-    var day = today.getDate();
-    var month = today.getMonth() + 1;
-    var year = today.getFullYear();
+    return today
+  }
+
+  getHash() {
+    var day = this.date.getDate();
+    var month = this.date.getMonth() + 1;
+    var year = this.date.getFullYear();
 
     if(day < 10) {
       day = '0' + day
