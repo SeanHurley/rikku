@@ -3,13 +3,20 @@ import TaskServerActions from "../actions/TaskServerActions.js"
 let TaskSocket = {
 
   channel: null,
+  socket: null,
+  chans: {},
 
-  join() {
-    var socket = new Phoenix.Socket("/ws");
-    socket.connect();
-    socket.onClose( e => console.log("CLOSE", e))
+  init() {
+    this.socket = new Phoenix.Socket("/ws");
+    this.socket.connect();
+    this.socket.onClose( e => console.log("CLOSE", e))
+  },
 
-    this.channel = socket.chan("tasks:list", {});
+  join(key) {
+    if (this.chans[key])
+      return
+    this.channel = this.socket.chan("tasks:list:" + key, {});
+    this.chans[key] = this.channel
     this.channel.join().receive("ignore", () => console.log("auth error"))
       .receive("ok", this.initialState.bind(this))
       .after(10000, () => console.log("Connection interruption"));

@@ -1,3 +1,4 @@
+import DateChange from './DateChange.react'
 import React from 'react'
 import Task from './Task.react'
 import TaskList from './TaskList.react'
@@ -10,6 +11,7 @@ export default class TaskColumn extends React.Component {
       <div>
         <TaskForm data={this.props.data} date={this.props.date}/>
         <TaskList data={this.props.data} date={this.props.date}/>
+        <DateChange/>
       </div>
     )
   }

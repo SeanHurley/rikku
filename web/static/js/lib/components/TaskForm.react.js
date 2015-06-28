@@ -19,7 +19,6 @@ export default class TaskForm extends React.Component {
     return value
   }
 
-
   componentDidMount() {
     this.focusInput()
   }

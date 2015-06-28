@@ -7,10 +7,11 @@ defmodule Rikku.RTaskChannel do
 
   import Ecto.Query
 
-  def join("tasks:list", _message, socket) do
+  def join("tasks:list:" <> key, _message, socket) do
     Logger.debug "> join #{socket.topic}"
+    [year, month, day] = String.split(key, "-")
     query = from t in Task,
-          where: t.date == ^Ecto.DateTime.local,
+          where: t.date == ^%Ecto.DateTime{year: year, month: month, day: day},
           order_by: [desc: t.inserted_at],
           select: t
     tasks = Repo.all(query)
